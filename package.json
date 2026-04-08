@@ -1,0 +1,17 @@
+{
+  "name": "elevator-request-system",
+  "version": "1.0.0",
+  "description": "ElevatorOS - Smart Building Elevator Request System",
+  "scripts": {
+    "postinstall": "cd server && npm install && cd ../client && npm install",
+    "build:client": "cd client && npm run build",
+    "postbuild:client": "node -e \"const fs=require('fs');const path=require('path');function copy(s,d){fs.mkdirSync(d,{recursive:true});fs.readdirSync(s).forEach(f=>{const sp=path.join(s,f),dp=path.join(d,f);fs.statSync(sp).isDirectory()?copy(sp,dp):fs.copyFileSync(sp,dp)});}if(fs.existsSync('server/public'))fs.rmSync('server/public',{recursive:true});copy('client/dist','server/public');console.log('Build copied to server/public');\"",
+    "build": "npm run build:client",
+    "start": "cd server && node index.js",
+    "dev:server": "cd server && node index.js",
+    "dev:client": "cd client && npm run dev"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

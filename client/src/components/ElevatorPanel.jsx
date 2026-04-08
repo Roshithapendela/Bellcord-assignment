@@ -18,7 +18,7 @@ export default function ElevatorPanel({ elevatorState, selectDestination, playCl
             <span className={`direction-arrow ${direction || 'idle'}`}>{getDirectionArrow()}</span>
           </div>
           <div className="display-floor">
-            <span className="floor-number-large">{currentFloor === 1 ? 'G' : currentFloor}</span>
+            <span className="floor-number-large">{currentFloor}</span>
           </div>
           <div className="display-state">
             {state === 'doors_open' ? 'DOORS OPEN' : state === 'idle' ? 'READY' : direction === 'up' ? 'GOING UP' : 'GOING DOWN'}
@@ -37,7 +37,7 @@ export default function ElevatorPanel({ elevatorState, selectDestination, playCl
           return (
             <button key={floor} className={`floor-btn ${isActive ? 'active' : ''} ${isCurrent ? 'current' : ''}`}
               onClick={() => handleSelectFloor(floor)} disabled={isCurrent && state !== 'doors_open'} id={`dest-floor-${floor}`}>
-              <span className="btn-number">{floor === 1 ? 'G' : floor}</span>
+              <span className="btn-number">{floor}</span>
               {isActive && <span className="btn-indicator"></span>}
             </button>
           );

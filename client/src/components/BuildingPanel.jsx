@@ -38,7 +38,7 @@ export default function BuildingPanel({ elevatorState, callElevator, playClick }
       <div className="building-shaft">
         <div className="shaft-track">
           <div className={`elevator-car ${state === 'doors_open' ? 'doors-open' : ''}`}
-            style={{ bottom: `${((currentFloor - 1) / (totalFloors - 1)) * 100}%` }}>
+            style={{ bottom: `calc(${((currentFloor - 0.5) / totalFloors) * 100}% - 20px)` }}>
             <div className="car-body">
               <span className="car-floor-num">{currentFloor}</span>
               {state === 'doors_open' && (
@@ -55,7 +55,7 @@ export default function BuildingPanel({ elevatorState, callElevator, playClick }
             return (
               <div key={floor} className={`floor-row ${isCurrentFloor ? 'current-floor' : ''} ${state === 'doors_open' && isCurrentFloor ? 'floor-arrived' : ''}`}>
                 <div className="floor-number">
-                  <span className="floor-label">{floor === 1 ? 'G' : floor}</span>
+                  <span className="floor-label">{floor}</span>
                   {isCurrentFloor && <div className="floor-indicator"><div className="indicator-pulse"></div></div>}
                 </div>
                 <div className="floor-line"><div className={`floor-dash ${isCurrentFloor ? 'active' : ''}`}></div></div>

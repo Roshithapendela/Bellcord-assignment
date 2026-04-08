@@ -27,7 +27,7 @@ export default function RequestQueue({ elevatorState }) {
               <div className="queue-item-priority"><span className="priority-num">#{index + 1}</span></div>
               <div className="queue-item-info">
                 <span className="queue-item-type">{req.type === 'call' ? '📞 Call' : '🎯 Dest'}</span>
-                <span className="queue-item-floor">Floor {req.floor}</span>
+                <span className="queue-item-floor">Floor {req.floor === 1 ? 'G' : req.floor - 1}</span>
               </div>
               {req.direction && <span className={`queue-item-dir ${req.direction}`}>{req.direction === 'up' ? '▲' : '▼'}</span>}
             </div>

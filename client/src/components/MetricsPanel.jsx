@@ -51,7 +51,7 @@ export default function MetricsPanel() {
             logs.map(log => (
               <div key={log.id} className={`log-item ${log.status}`}>
                 <span className="log-type">{log.type === 'call' ? '📞' : '🎯'}</span>
-                <span className="log-floor">F{log.floor}</span>
+                <span className="log-floor">F{log.floor === 1 ? 'G' : log.floor - 1}</span>
                 <span className="log-dir">{log.direction ? (log.direction === 'up' ? '▲' : '▼') : '–'}</span>
                 <span className={`log-status ${log.status}`}>{log.status}</span>
                 <span className="log-time">{new Date(log.created_at).toLocaleTimeString()}</span>

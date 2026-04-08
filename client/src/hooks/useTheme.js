@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
 export default function useTheme() {
-  const [theme, setTheme] = useState(() => localStorage.getItem('elevator-theme') || 'dark');
+  const [theme, setTheme] = useState(() => localStorage.getItem('elevator-theme') || 'light');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);

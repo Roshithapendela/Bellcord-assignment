@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 
 const getWsUrl = () => {
+  if (import.meta.env.VITE_BACKEND_URL) {
+    return import.meta.env.VITE_BACKEND_URL.replace(/^http/, 'ws');
+  }
   const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
   if (import.meta.env.DEV) return 'ws://localhost:5000';
   return `${protocol}//${window.location.host}`;

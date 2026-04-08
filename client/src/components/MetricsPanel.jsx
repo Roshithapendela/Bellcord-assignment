@@ -1,6 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 
 const getApiUrl = () => {
+  if (import.meta.env.VITE_BACKEND_URL) {
+    return `${import.meta.env.VITE_BACKEND_URL}/api`;
+  }
   if (import.meta.env.DEV) return 'http://localhost:5000/api';
   return '/api';
 };
